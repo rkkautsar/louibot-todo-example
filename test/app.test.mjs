@@ -35,7 +35,7 @@ test("filters todos by completion state and reflects toggles", () => {
   assert.deepEqual(matching("active").map(({ id }) => id), [2]);
   assert.deepEqual(matching("completed").map(({ id }) => id), [1]);
 
-  // A filter with no matches can show the same empty state as an empty list.
+  // Empty filtered views are distinct from the default empty-list state.
   store.toggle(2);
   assert.deepEqual(matching("active"), []);
   assert.deepEqual(matching("completed").map(({ id }) => id), [1, 2]);

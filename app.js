@@ -43,6 +43,13 @@ if (typeof document !== "undefined") {
       return item;
     }));
     empty.hidden = todos.length > 0;
+    if (todos.length === 0) {
+      empty.textContent = currentFilter === "active"
+        ? "No active tasks yet."
+        : currentFilter === "completed"
+          ? "No completed tasks yet."
+          : "Nothing here yet. Add one small thing.";
+    }
   }
 
   filters.forEach((filter) => filter.addEventListener("change", () => {
