@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Today — Todo list</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app" aria-labelledby="title">
+      <header class="app-header">
+        <p class="eyebrow">Monday, October 19</p>
+        <h1 id="title">Today<span>.</span></h1>
+        <p class="subtitle">A small list for a clear mind.</p>
+      </header>
+      <form id="todo-form" class="todo-form">
+        <label class="sr-only" for="todo-input">Add a task</label>
+        <input id="todo-input" name="task" placeholder="What needs doing?" autocomplete="off" required />
+        <button type="submit">Add task</button>
+      </form>
+      <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+      <p id="empty-state" class="empty-state">Nothing here yet. Add one small thing.</p>
+    </main>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
