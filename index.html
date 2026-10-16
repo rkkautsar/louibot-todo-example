@@ -18,6 +18,12 @@
         <input id="todo-input" name="task" placeholder="What needs doing?" autocomplete="off" required />
         <button type="submit">Add task</button>
       </form>
+      <nav id="todo-filters" class="todo-filters" aria-label="Filter tasks">
+        <button type="button" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-filter="active" aria-pressed="false">Active</button>
+        <button type="button" data-filter="completed" aria-pressed="false">Completed</button>
+      </nav>
+      <p id="todo-summary" class="todo-summary" aria-live="polite" aria-atomic="true"></p>
       <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
       <p id="empty-state" class="empty-state">Nothing here yet. Add one small thing.</p>
     </main>
