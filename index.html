@@ -18,6 +18,12 @@
         <input id="todo-input" name="task" placeholder="What needs doing?" autocomplete="off" required />
         <button type="submit">Add task</button>
       </form>
+      <fieldset class="todo-filters" aria-label="Filter todos">
+        <legend>Show</legend>
+        <label><input type="radio" name="todo-filter" value="all" checked /> All</label>
+        <label><input type="radio" name="todo-filter" value="active" /> Active</label>
+        <label><input type="radio" name="todo-filter" value="completed" /> Completed</label>
+      </fieldset>
       <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
       <p id="empty-state" class="empty-state">Nothing here yet. Add one small thing.</p>
     </main>
