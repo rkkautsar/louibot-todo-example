@@ -25,9 +25,15 @@ if (typeof document !== "undefined") {
   const form = document.querySelector("#todo-form");
   const input = document.querySelector("#todo-input");
   const empty = document.querySelector("#empty-state");
+  const filters = document.querySelectorAll('[name="todo-filter"]');
+  let currentFilter = "all";
 
   function render() {
-    const todos = store.list();
+    const todos = store.list().filter((todo) => {
+      if (currentFilter === "active") return !todo.completed;
+      if (currentFilter === "completed") return todo.completed;
+      return true;
+    });
     list.replaceChildren(...todos.map((todo) => {
       const item = document.createElement("li");
       item.className = `todo-item${todo.completed ? " completed" : ""}`;
@@ -38,6 +44,11 @@ if (typeof document !== "undefined") {
     }));
     empty.hidden = todos.length > 0;
   }
+
+  filters.forEach((filter) => filter.addEventListener("change", () => {
+    currentFilter = filter.value;
+    render();
+  }));
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
